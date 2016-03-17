@@ -1,0 +1,35 @@
+<h1>Add a new product</h1>
+<%= form_tag '/products/create', method: :post do %>
+
+  <div class="form-group">
+    <%= label_tag :image %>
+    <%= text_field_tag :image %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :color %>
+    <%= text_field_tag :color %>
+  </div>    
+  <div class="form-group">
+    <%= label_tag :material %>
+    <%= text_field_tag :material %>
+  </div>  
+  <div class="form-group">
+    <%= label_tag :where_made %>
+    <%= text_field_tag :where_made %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+   <div class="form-group">
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div> 
+     <div class="form-group">
+    <%= label_tag :in_stock %>
+    <%= text_field_tag :in_stock %>
+  </div> 
+  <div>
+    <%= submit_tag "Add Product", class: "btn btn-default" %>
+  </div>
+<% end %>

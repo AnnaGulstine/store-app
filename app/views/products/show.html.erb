@@ -1,0 +1,19 @@
+<h2>Displaying one product</h2>
+
+<div class="col-sm-6"><img src=<%= @product.image %> class="img-responsive"/></div>
+<div class="col-sm-6">
+<h4><%= @product.sale_message %></h4>
+<p>Color: <%= @product.color %></p>
+<p>Material: <%= @product.material %></p>
+<p>Made in <%= @product.where_made %></p>
+<p>Price: <%= number_to_currency(@product.price) %></p>
+<p>Tax: <%= number_to_currency(@product.tax) %></p>
+<p>Total including tax: <%= number_to_currency(@product.total) %></p>
+<p>Description: <%= @product.description %></p>
+<p><%= @product.is_in_stock %></p>
+<p><a href="http://localhost:3000/products">Back to homepage</a></p>
+<br />
+<%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
+<br />
+<%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: MyString
+  price: 1
+  material: MyString
+  where_made: MyString
+
+two:
+  color: MyString
+  price: 1
+  material: MyString
+  where_made: MyString

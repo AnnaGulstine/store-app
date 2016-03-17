@@ -1,0 +1,65 @@
+body { 
+  font-family: Geneva,Tahoma,Verdana,sans-serif;
+  background: url('white_wall_hash.png');
+  border-top: 4px solid gray;
+  margin-top: 3px;
+}
+
+.well {
+  background-color: white;
+}
+
+/* .navbar-default {
+  background-color: none;
+  border-bottom: none;
+} */
+
+/*.navbar-default .navbar-toggle {
+  border: none;
+}*/
+
+.clear_both {
+  clear: both
+}
+
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+
+  &:hover {
+    background: transparent !important;
+  }
+
+  .icon-bar {
+    width: 22px;
+    transition: all 0.2s;
+  }
+
+  .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+
+  .middle-bar {
+    opacity: 0;
+  }
+
+  .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+}
+
+.navbar-toggle.collapsed {
+  .top-bar {
+    transform: rotate(0);
+  }
+
+  .middle-bar {
+    opacity: 1;
+  }
+
+  .bottom-bar {
+    transform: rotate(0);
+  }
+}

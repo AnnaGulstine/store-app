@@ -1,0 +1,27 @@
+<!-- Displays all products -->
+
+<h2>Displaying all products</h2>
+
+<% count = 0 %>
+<% if @product %>
+    <p>Color: <%= @product.color %></p>
+<% else %>
+<% @products.each do |product| %>
+    <% if count == 4 %>
+        <div class="clear_both"></div>
+        <% count = 0 %>
+    <% else %>
+        <% count = count + 1 %>
+    <% end %>
+  <div class="col-sm-3 well">
+    <a href="http://localhost:3000/products/<%= product.id %>">
+    <img src=<%= product.image %> class="img-responsive homepageImage"/></a>
+    <h4>Color: <%= product.color %></h4>
+    <h4>Material: <%= product.material %></h4>
+    <h4>Made in <%= product.where_made %></h4>
+    <h4>Price: <%= number_to_currency(product.price) %></h4>
+    <h4>Description: <%= product.description %></h4>    
+    <h5><a href="http://localhost:3000/products/<%= product.id %>">Link to product page</a></h5>
+    </div>
+<% end %>
+<% end %>

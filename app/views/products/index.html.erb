@@ -1,10 +1,17 @@
-<!-- Displays all products -->
-
-<h2>Displaying all products</h2>
-
 <% count = 0 %>
 <% if @product %>
-    <p>Color: <%= @product.color %></p>
+    <div class="row">
+        <div class="col-sm-6">
+            <img src=<%= @product.image %> class="img-responsive "/>
+        </div>
+        <div class="col-sm-6 description">
+            <h4>Color: <%= @product.color %></h4>
+            <h4>Material: <%= @product.material %></h4>
+            <h4>Made in <%= @product.where_made %></h4>
+            <h4>Price: <%= number_to_currency(@product.price) %></h4>
+            <h4>Description: <%= @product.description %></h4>
+        </div>        
+    </div>
 <% else %>
 <% @products.each do |product| %>
     <% if count == 4 %>

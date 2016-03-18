@@ -7,4 +7,15 @@ Rails.application.routes.draw do
   get '/products/:id/edit' => 'products#edit'
   patch '/products/:id' => 'products#update'
   delete '/products/:id' => 'products#destroy'
+
+  post '/search' => 'products#run_search'
+
+  get '/' => 'suppliers#index'
+  get '/suppliers' => 'suppliers#index'
+  get '/suppliers/new' => 'suppliers#new'
+  post '/suppliers/create' => 'suppliers#create'
+  get '/suppliers/:id' => 'suppliers#show' 
+  get '/suppliers/:id/edit' => 'suppliers#edit'
+  patch '/suppliers/:id' => 'suppliers#update'
+  delete '/suppliers/:id' => 'suppliers#destroy'
 end

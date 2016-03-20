@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all 
     sort_by = params[:sort_by]
@@ -24,6 +25,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(
+      title: params[:title],
       image: params[:image],
       color: params[:color],
       material: params[:material],
@@ -48,6 +50,7 @@ class ProductsController < ApplicationController
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     @product.update(
+      title: params[:title],
       image: params[:image],
       color: params[:color],
       material: params[:material],
@@ -68,6 +71,8 @@ class ProductsController < ApplicationController
   end
 
   def run_search
-
+    search_term = params[:search]
+    @products = Product.where('description LIKE ?', "%" + search_term + "%")
+    render 'index.html.erb'
   end
 end

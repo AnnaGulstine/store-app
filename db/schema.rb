@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318013435) do
+ActiveRecord::Schema.define(version: 20160320150438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "product_id"
+    t.boolean  "front_page"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "color"
@@ -23,10 +31,10 @@ ActiveRecord::Schema.define(version: 20160318013435) do
     t.string   "where_made"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
-    t.string   "image"
     t.text     "description"
     t.boolean  "in_stock",                            default: true
     t.integer  "supplier_id"
+    t.string   "title"
   end
 
   create_table "suppliers", force: :cascade do |t|

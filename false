@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20160320145135_add_display_boolean_to_images.rb

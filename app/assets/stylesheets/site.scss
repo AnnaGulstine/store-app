@@ -1,7 +1,7 @@
 body { 
   font-family: Geneva,Tahoma,Verdana,sans-serif;
   background: url('cup_rings.jpg');
-  border-top: 4px solid gray;
+  border-top: 4px solid black;
 }
 
 .well {
@@ -27,8 +27,12 @@ body {
 }
 
 .navbar-brand {
-  color: black;
+  color: black !important;
   font-size: 30px;
+}
+
+.navbar-default a {
+  color: black !important;
 }
 
 .navbar-toggle {

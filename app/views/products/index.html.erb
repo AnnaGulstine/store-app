@@ -2,9 +2,10 @@
 <% if @product %>
     <div class="row">
         <div class="col-sm-6">
-            <img src=<%= @product.image %> class="img-responsive "/>
+            <img src=<%= @product.images[0].image_url %> class="img-responsive "/>
         </div>
         <div class="col-sm-6 description">
+            <h2><%= @product.title %></h2>
             <h4>Color: <%= @product.color %></h4>
             <h4>Material: <%= @product.material %></h4>
             <h4>Made in <%= @product.where_made %></h4>
@@ -22,7 +23,8 @@
     <% end %>
   <div class="col-sm-3 well">
     <a href="http://localhost:3000/products/<%= product.id %>">
-    <img src=<%= product.image %> class="img-responsive homepageImage"/></a>
+    <img src=<%= product.images[0].image_url %> class="img-responsive homepageImage"/></a>
+    <h2><%= product.title %></h2>    
     <h4>Color: <%= product.color %></h4>
     <h4>Material: <%= product.material %></h4>
     <h4>Made in <%= product.where_made %></h4>

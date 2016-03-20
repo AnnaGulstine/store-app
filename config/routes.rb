@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   get '/images/new' => 'images#new'
   post '/images/create' => 'images#create'
 
-  post '/orders/create' => 'orders#create'
+  post '/orders' => 'orders#create'
   get '/orders/:id' => 'orders#show' 
 end

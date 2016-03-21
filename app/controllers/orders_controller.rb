@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     subtotal = Product.find_by(id: params[:product_id]).price.to_i * params[:quantity].to_i
     tax = Product.find_by(id: params[:product_id]).tax.to_i * params[:quantity].to_i
     total = Product.find_by(id: params[:product_id]).total.to_i * params[:quantity].to_i
+    created_at = Product.find_by(id: params[:product_id]).created_at
     
     order = Order.create(
       quantity: params[:quantity],
@@ -10,7 +11,8 @@ class OrdersController < ApplicationController
       product_id: params[:product_id],
       subtotal: subtotal,
       tax: tax,
-      total: total
+      total: total,
+      created_at: created_at
     )
     redirect_to "/orders/#{order.id}"
   end

@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
       total: total,
       created_at: created_at
     )
+    flash[:success] = "Order successfully created!"
     redirect_to "/orders/#{order.id}"
   end
 

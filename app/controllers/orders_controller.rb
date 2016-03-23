@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
   def create
-    subtotal = Product.find_by(id: params[:product_id]).price.to_i * params[:quantity].to_i
-    tax = Product.find_by(id: params[:product_id]).tax.to_i * params[:quantity].to_i
-    total = Product.find_by(id: params[:product_id]).total.to_i * params[:quantity].to_i
-    created_at = Product.find_by(id: params[:product_id]).created_at
+    product = Product.find_by(id: params[:product_id])
+    subtotal = product.price.to_i * params[:quantity].to_i
+    tax = product.tax.to_i * params[:quantity].to_i
+    total = product.total.to_i * params[:quantity].to_i
+    created_at = product.created_at
     
     order = Order.create(
       quantity: params[:quantity],

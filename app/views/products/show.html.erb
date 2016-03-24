@@ -21,7 +21,7 @@
   <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
 
 <h2>Buy this product</h2>
-<%= form_tag "/orders", method: :post do %>
+<%= form_tag "/carted_products", method: :post do %>
   <div>
     <%= label_tag :quantity %>
     <%= text_field_tag :quantity %>

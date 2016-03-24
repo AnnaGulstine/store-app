@@ -2,7 +2,6 @@
   <div class="col-sm-6">
     <img src=<%= image.image_url %> class="img-responsive" />
   </div>
-  <div class="clear"></div>
 <% end %>
 <div class="col-sm-4 description">
   <h4><%= @product.sale_message %></h4>
@@ -20,7 +19,6 @@
   <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
   <br />
   <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
-</div>
 
 <h2>Buy this product</h2>
 <%= form_tag "/orders", method: :post do %>
@@ -35,4 +33,13 @@
   <div>
     <%= submit_tag "Buy Now!" %>
   </div>
+  <div>
+    <h4>This Product's Categories:</h4>
+    <ul>
+      <% @product.categories.each do |category| %>
+      <li><%= category.name %>s</li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <% end %>

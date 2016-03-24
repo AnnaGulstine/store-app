@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
       @products = Product.where('price < ?', 20)
     elsif params["random_item"]
       @product = Product.order('RANDOM()').first
+    elsif params[:category]
+      @products = Category.find_by(name: params[:category]).products
     end
   end
 

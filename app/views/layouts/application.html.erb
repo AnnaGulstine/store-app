@@ -33,6 +33,9 @@
             <li><a href="/products?sort=price&sort_order=desc">Sort by Price - Desc</a></li>
             <li><a href="/products?discount=true">Discount Items</a></li>
             <li><a href="/products?random_item=true">View Random Item</a></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>">Sort by <%= category.name %>s</a></li>
+            <% end %>
           </ul>
         </li>
       </ul>

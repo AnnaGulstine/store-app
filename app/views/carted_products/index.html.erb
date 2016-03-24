@@ -5,3 +5,9 @@
   <% end %>
     </li>
 </ol>
+
+<%= form_tag "/orders", method: :post do %>
+  <div>
+    <%= submit_tag "Buy Now" %>
+  </div>
+<% end %>

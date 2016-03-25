@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
     @carted_products.each do |carted_product|
       subtotal = subtotal + (carted_product.product.price * carted_product.quantity)
+      carted_product.update(status: "purchased")
     end
       
     tax = subtotal * 0.09
@@ -19,11 +20,13 @@ class OrdersController < ApplicationController
       tax: tax,
       total: total,
     )
+
     flash[:success] = "Order successfully created!"
     redirect_to "/orders/#{order.id}"
   end
 
   def show
+    @order = Order.find_by(id: params[:id])
     render 'show.html.erb'
   end
 end

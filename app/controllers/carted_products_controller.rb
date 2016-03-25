@@ -1,7 +1,9 @@
 class CartedProductsController < ApplicationController
   def index
     @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted")
-  render 'index.html.erb'
+    if CartedProduct.where(status: "carted").count == 0
+      redirect_to '/products'
+    end
   end
 
   def create

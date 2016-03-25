@@ -2,14 +2,6 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <h3>Product Name: <%= Product.find_by(id: Order.find_by(id: params[:id]).product_id).title %></h3>
-    <p>Order Created: <%= Order.find_by(id: params[:id]).friendly_created_at %></p>   
-    <p>Subtotal: <%= number_to_currency(Order.find_by(id: params[:id]).subtotal) %></p>
-    <p>Tax: <%= number_to_currency(Order.find_by(id: params[:id]).tax) %></p>
-    <p>Total: <%= number_to_currency(Order.find_by(id: params[:id]).total) %></p>
-    <p>Your Email: <%= current_user.email %></p>
-  </div>
-  <div class="col-sm-6">
-    <img src="<%= Product.find_by(id: Order.find_by(id: params[:id]).product_id).images[0].image_url %>" class="img-responsive" />
+    <h3><%= params[:id] %></p>
   </div>
 </div>

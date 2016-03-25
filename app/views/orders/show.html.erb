@@ -5,6 +5,12 @@
     <h4>Your Order Number: <%= params[:id] %></h4>
     <h4>Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
     <h4>Tax: <%= number_to_currency(@order.tax) %></h4>
-    <h4>Total: <%= number_to_currency(@order.total) %></h4>
+    <h4>Total: <%= number_to_currency(@order.total) %></h4>    
+
+    <% @order.products.each do |product| %>
+      <p><%= product.title %></p>
+      <p><%= product.carted_products.find_by(order_id: @order.id).quantity %></p>
+    <% end %>
+
   </div>
 </div>

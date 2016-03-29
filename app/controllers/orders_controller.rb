@@ -1,10 +1,8 @@
 class OrdersController < ApplicationController
   def create
-    @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted")
+    @carted_products = current_user.carted_products.where(status: "carted")
     
     subtotal = 0
-    tax = 0
-    total = 0
 
     @carted_products.each do |carted_product|
       subtotal = subtotal + (carted_product.product.price * carted_product.quantity)
@@ -20,12 +18,7 @@ class OrdersController < ApplicationController
       total: total
     )
 
-    @carted_products.each do |carted_product|
-      carted_product.update(order_id: order.id)
-      carted_product.update(status: "purchased")
-    end
-
-    
+    @carted_products.update_all(status: "purchased", order_id: order.id)
 
     flash[:success] = "Order successfully created!"
     redirect_to "/orders/#{order.id}"

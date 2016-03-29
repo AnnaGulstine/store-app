@@ -1,10 +1,10 @@
 <ol>
   <% @carted_products.each do |carted_product| %>
   <li>
-  <%= link_to "Remove product from cart", "/carted_products/#{carted_product.id}", method: :delete %>
-  <%= carted_product.product.title %>
-  <% end %>
-    </li>
+    <%= link_to "Remove product from cart", "/carted_products/#{carted_product.id}", method: :delete %>
+    <%= carted_product.product.title %>
+    <% end %>
+  </li>
 </ol>
 
 <%= form_tag "/orders", method: :post do %>

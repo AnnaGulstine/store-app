@@ -13,11 +13,15 @@ class ProductsController < ApplicationController
     elsif params[:category]
       @products = Category.find_by(name: params[:category]).products
     end
+    if current_user
+    @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted") 
+    end
   end
 
   def show
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
+    @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted")
     render "show.html.erb"
   end
 
@@ -45,6 +49,7 @@ class ProductsController < ApplicationController
   def edit
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
+    @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted")     
     render 'edit.html.erb'
   end
 

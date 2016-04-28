@@ -9,6 +9,9 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
+
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

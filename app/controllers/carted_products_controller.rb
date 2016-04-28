@@ -1,7 +1,7 @@
 class CartedProductsController < ApplicationController
   def index
     @carted_products = CartedProduct.where("user_id = ? AND status = ?", current_user.id.to_i, "carted")
-    if CartedProduct.where(status: "carted").count == 0
+    if @carted_products.length == 0
       redirect_to '/products'
     end
   end

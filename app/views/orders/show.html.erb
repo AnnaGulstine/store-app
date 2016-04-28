@@ -1,17 +1,17 @@
 <h2>Your Order</h2>
 
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-4 order">
     <h4>Your Order Number: <%= params[:id] %></h4>
     <h4>Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
     <h4>Tax: <%= number_to_currency(@order.tax) %></h4>
     <h4>Total: <%= number_to_currency(@order.total) %></h4>    
 
-<div class="col-sm-4">
-  <h3>Items ordered:</h3>
-    <% @order.products.each do |product| %>
-      <h4>Product Name: </h4><p><%= product.title %></p>
-      <h4>Quantity: </h4><p><%= product.carted_products.find_by(order_id: @order.id).quantity %></p>
-    <% end %>
-</div>
+  <div class="col-sm-4 order">
+    <h3>Items ordered:</h3>
+      <% @order.products.each do |product| %>
+        <h4>Product Name: </h4><p><%= product.title %></p>
+        <h4>Quantity: </h4><p><%= product.carted_products.find_by(order_id: @order.id).quantity %></p>
+      <% end %>
+  </div>
 </div>

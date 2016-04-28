@@ -16,10 +16,11 @@
   <h3><%= @product.is_in_stock %></h3>  
   <br />
   <p><a href="http://localhost:3000/products">Back to homepage</a></p>
-  <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
-  <br />
-  <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
-
+  <% if current_user && current_user.admin %>
+    <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
+    <br />
+    <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
+  <% end %>
 <h2>Buy this product</h2>
 <%= form_tag "/carted_products", method: :post do %>
   <div>

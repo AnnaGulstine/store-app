@@ -1,11 +1,11 @@
-<ol>
-  <% @carted_products.each do |carted_product| %>
-  <li>
-    <%= link_to "Remove product from cart", "/carted_products/#{carted_product.id}", method: :delete %>
-    <%= carted_product.product.title %>
-    <% end %>
-  </li>
-</ol>
+<div class="row">
+  <div class="col-sm-4 order">
+      <% @carted_products.each do |carted_product| %>
+        <h3><%= carted_product.product.title %> (<%= carted_product.quantity %>)</h3> 
+        <h4><%= link_to "Remove product from cart", "/carted_products/#{carted_product.id}", method: :delete %></h4>
+      <% end %>
+  </div>
+</div>
 
 <%= form_tag "/orders", method: :post do %>
   <div>

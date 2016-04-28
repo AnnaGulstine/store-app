@@ -6,6 +6,15 @@ class Product < ActiveRecord::Base
   has_many :categorized_products
   has_many :categories, through: :categorized_products
 
+  validates :title, presence: true
+  validates :title, uniqueness: true
+
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :price, :numericality => { :greater_than => 0 }
+
+  validates :supplier_id, presence: true
+
   def friendly_updated_at
     updated_at.strftime("%A, %d %b %Y %l:%M %p")
   end
